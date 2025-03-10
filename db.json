@@ -1,0 +1,54 @@
+{
+  "clients": [
+    {
+      "id": "b7ec",
+      "name": "Pedro henrique maia",
+      "phone": "83993911733",
+      "cep": "50780300",
+      "address": "",
+      "neighborhood": "",
+      "city": "",
+      "state": ""
+    },
+    {
+      "id": "7d51",
+      "name": "PEDRO HENRIQUE MAIA OLIVEIRA",
+      "phone": "83993911733",
+      "cep": "50780-300",
+      "address": "Avenida Doutor José Rufino",
+      "neighborhood": "Barro",
+      "city": "Recife",
+      "state": "PE"
+    },
+    {
+      "id": "b1bc",
+      "name": "PEDRO HENRIQUE MAIA OLIVEIRA",
+      "phone": "83993911733",
+      "cep": "50780-080",
+      "address": "Rua André Dias Figueredo",
+      "neighborhood": "Barro",
+      "city": "Recife",
+      "state": "PE"
+    },
+    {
+      "id": "c3cf",
+      "name": "Larissa Larica",
+      "phone": "81 99 99 99 9 99",
+      "cep": "50780300",
+      "address": "Avenida Doutor José Rufino",
+      "neighborhood": "Barro",
+      "city": "Recife",
+      "state": "PE"
+    },
+    {
+      "id": "1952",
+      "name": "Larissa",
+      "phone": "93223123123213213213213123213213213213213",
+      "cep": "51190235",
+      "address": "Rua José Fernandes Portugal",
+      "neighborhood": "Ipsep",
+      "city": "Recife",
+      "state": "PE"
+    }
+  ]
+}
