@@ -20,13 +20,13 @@ Bem-vindo ao repositório do aplicativo de delivery da Pizzaria! Este projeto fo
 ### 🛠 Tecnologias Utilizadas
 Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-HTML : Estruturação básica da página.
-CSS : Estilização e design responsivo.
-JavaScript : Lógica dinâmica e interatividade.
-Nominatim (OpenStreetMap) : Integração para exibir mapas e localizações.
-VIACEP : API para pesquisa de CEP e obtenção de informações de endereço.
-JSON Server : Simulação de backend para fornecer dados.
-Node.js : Ambiente de execução para o servidor e gerenciamento de dependências.
+- HTML : Estruturação básica da página.
+- CSS : Estilização e design responsivo.
+- JavaScript : Lógica dinâmica e interatividade.
+- Nominatim (OpenStreetMap) : Integração para exibir mapas e localizações.
+- VIACEP : API para pesquisa de CEP e obtenção de informações de endereço.
+- JSON Server : Simulação de backend para fornecer dados.
+- Node.js : Ambiente de execução para o servidor e gerenciamento de dependências.
 
 ### 🚀 Como Executar o Projeto
 Siga os passos abaixo para configurar e executar o projeto localmente:
