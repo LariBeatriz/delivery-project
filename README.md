@@ -48,6 +48,6 @@ Para iniciar o servidor JSON e rodar a aplicação, use o seguinte comando:
 
 npm start
 
-O servidor frontend estará disponível em http://localhost:3000
+O servidor frontend estará disponível em http://localhost:3000 <br>
 E o servidor backend (db-json) estara rodando na porta 3001
 
