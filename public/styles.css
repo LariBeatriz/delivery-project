@@ -1,0 +1,77 @@
+/* Cores da Pizzaria */
+:root {
+  --primary-color: #ff6347; /* Vermelho tomate */
+  --secondary-color: #ffd700; /* Dourado */
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
+/* Estilização geral */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff5e6;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Botões */
+.btn-danger {
+  background-color: var(--danger-color);
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-warning {
+  background-color: var(--secondary-color);
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #d6a200;
+}
+
+/* Inputs */
+.input-group-text {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.form-control {
+  border-color: #ced4da;
+}
+
+/* Mapa */
+#map {
+  height: 250px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  #map {
+    height: 200px;
+  }
+}
