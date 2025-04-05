@@ -27,6 +27,7 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 - VIACEP : API para pesquisa de CEP e obtenção de informações de endereço.
 - JSON Server : Simulação de backend para fornecer dados.
 - Node.js : Ambiente de execução para o servidor e gerenciamento de dependências.
+- Express: para rodar o servidor front-end
 
 ### 🚀 Como Executar o Projeto
 Siga os passos abaixo para configurar e executar o projeto localmente:
@@ -46,5 +47,6 @@ npm install
 Para iniciar o servidor JSON e rodar a aplicação, use o seguinte comando:
 
 npm start
-O servidor estará disponível em http://localhost:3000 (ou outra porta configurada no projeto).
+O servidor estará disponível em http://localhost:3001 para o front end
+e o servidor backend (db-json) estara rodando na porta 3000.
 
