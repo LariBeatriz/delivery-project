@@ -10,6 +10,8 @@ Uma aplicação de delivery, com integração com VIACEP e Nominatim (OpenStreet
 
 - [@laribeatriz](https://www.github.com/laribeatriz)
 
+- [@marcella10109](https://github.com/marcella10109)
+
 
 
 ## Documentação
