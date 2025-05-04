@@ -1,7 +1,10 @@
 // Variáveis globais
 const API_URL = 'http://localhost:3001/clients';
+const API_URL_PRODUCTS = 'http://localhost:3001/produtos';
 let map;
 let currentClient = null;
+let currentOrder = [];
+
 
 // Máscaras de input
 $(document).ready(() => {
@@ -10,19 +13,19 @@ $(document).ready(() => {
   $('#cep').inputmask('99999-999');
 });
 
-// Inicializar mapa
-function initMap() {
-  if (!map) {
-    map = L.map('map').setView([-8.1173746, -34.8963753], 13); // Recife
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+// // Inicializar mapa
+// function initMap() {
+//   if (!map) {
+//     map = L.map('map').setView([-8.1173746, -34.8963753], 13); // Recife
+//     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     
-    // Marcar pizzaria
-    L.marker([-8.1173746, -34.8963753])
-      .addTo(map)
-      .bindPopup('Pizzaria Dona Maria<br>Padre Carapuceiro, 590')
-      .openPopup();
-  }
-}
+//     // Marcar pizzaria
+//     L.marker([-8.1173746, -34.8963753])
+//       .addTo(map)
+//       .bindPopup('Pizzaria Dona Maria<br>Padre Carapuceiro, 590')
+//       .openPopup();
+//   }
+// }
 
 // Buscar CEP
 async function fetchCep(cep) {
@@ -62,26 +65,33 @@ document.getElementById('btnClientList').addEventListener('click', () => {
   document.getElementById('cepForm').classList.add('d-none');
 });
 
-document.getElementById('clientSelect').addEventListener('change', async () => {
-  const selectedClient = JSON.parse(document.getElementById('clientSelect').value);
-  document.getElementById('btnWhatsApp').classList.remove('d-none');
-  document.getElementById('btnEditClient').classList.remove('d-none');
-  document.getElementById('btnDeleteClient').classList.remove('d-none');
-
-  // Mostrar mapa
-  const address = `${selectedClient.address}, ${selectedClient.neighborhood}, ${selectedClient.city}`;
-  const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`);
-  const data = await response.json();
-  if (data.length > 0) {
-    document.getElementById('map').classList.remove('d-none');
-    initMap();
-    map.setView([data[0].lat, data[0].lon], 15);
-    L.marker([data[0].lat, data[0].lon])
-      .addTo(map)
-      .bindPopup('Cliente')
-      .openPopup();
-  }
+$(document).ready(function() {
+  // Mostrar/ocultar o cardápio ao clicar no botão
+  $('#btnProducts').on('click', function() {
+      $('#menuSection').toggleClass('d-none');
+  });
 });
+
+// document.getElementById('clientSelect').addEventListener('change', async () => {
+//   const selectedClient = JSON.parse(document.getElementById('clientSelect').value);
+//   document.getElementById('btnWhatsApp').classList.remove('d-none');
+//   document.getElementById('btnEditClient').classList.remove('d-none');
+//   document.getElementById('btnDeleteClient').classList.remove('d-none');
+
+//   // Mostrar mapa
+//   const address = `${selectedClient.address}, ${selectedClient.neighborhood}, ${selectedClient.city}`;
+//   const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`);
+//   const data = await response.json();
+//   if (data.length > 0) {
+//     document.getElementById('map').classList.remove('d-none');
+//     initMap();
+//     map.setView([data[0].lat, data[0].lon], 15);
+//     L.marker([data[0].lat, data[0].lon])
+//       .addTo(map)
+//       .bindPopup('Cliente')
+//       .openPopup();
+//   }
+// });
 
 document.getElementById('btnWhatsApp').addEventListener('click', () => {
   const selectedClient = JSON.parse(document.getElementById('clientSelect').value);
@@ -181,3 +191,116 @@ document.getElementById('btnCancel').addEventListener('click', () => {
   document.getElementById('clientForm').classList.add('d-none');
   document.getElementById('clientForm').reset();
 });
+
+// Função para atualizar o resumo do pedido
+function updateOrderSummary() {
+    if (currentOrder.length === 0) {
+        $('#orderSummary').html('<p>Nenhum item no pedido.</p>');
+        return;
+    }
+
+    let html = '<ul class="list-group mb-3">';
+    let total = 0;
+
+    currentOrder.forEach(item => {
+        html += `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${item.name} - R$ ${item.price.toFixed(2)}
+                    <button class="btn btn-sm btn-danger remove-item" data-index="${currentOrder.indexOf(item)}">Remover</button>
+                </li>`;
+        total += item.price;
+    });
+
+    html += '</ul>';
+    html += `<p><strong>Total: R$ ${total.toFixed(2)}</strong></p>`;
+    html += `<button class="btn btn-success w-100" id="finalizeOrder">Finalizar Pedido</button>`;
+
+    $('#orderSummary').html(html);
+}
+
+$(document).ready(function() {
+  // Quando clicar em "Adicionar ao Pedido"
+  $(document).on('click', '.add-to-order', function() {
+      const name = $(this).data('name');
+      const price = parseFloat($(this).data('price'));
+
+      currentOrder.push({ name, price });
+      updateOrderSummary();
+      alert(`✅ ${name} foi adicionado ao pedido!`);
+  });
+
+  // Remover item do pedido
+  $(document).on('click', '.remove-item', function() {
+      const index = $(this).data('index');
+      currentOrder.splice(index, 1);
+      updateOrderSummary();
+  });
+
+  // Finalizar Pedido
+  $(document).on('click', '#finalizeOrder', function() {
+      if (currentOrder.length === 0) {
+          alert('O pedido está vazio!');
+          return;
+      }
+
+      let message = 'Olá! Gostaria de fazer o seguinte pedido:%0A';
+      currentOrder.forEach(item => {
+          message += `🍕 ${item.name} - R$ ${item.price.toFixed(2)}%0A`;
+      });
+      const total = currentOrder.reduce((sum, item) => sum + item.price, 0);
+      message += `%0ATotal: R$ ${total.toFixed(2)}`;
+  });
+
+  // Exibir o resumo do pedido na página
+  $('body').append(`
+      <div class="container mt-4">
+          <h3>🛒 Meu Pedido</h3>
+          <div id="orderSummary"><p>Nenhum item no pedido.</p></div>
+      </div>
+  `);
+});
+
+// Finalizar Pedido e enviar para a API de produtos
+$(document).on('click', '#finalizeOrder', async function() {
+  if (currentOrder === 0) {
+      alert('O pedido está vazio!');
+      return;
+  }
+
+  const total = currentOrder.reduce((sum, item) => sum + item.price, 0);
+
+  // Cria o objeto do pedido (adaptar conforme sua estrutura desejada)
+  const newOrder = {
+      id: Date.now(),
+      items: currentOrder,
+      total: total
+  };
+
+  try {
+      const response = await fetch(API_URL_PRODUCTS, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newOrder)
+      });
+
+      if (response.ok) {
+          alert('✅ Pedido finalizado e salvo com sucesso!');
+          currentOrder = [];  // Limpa o pedido atual
+          updateOrderSummary();  // Atualiza a tela
+      } else {
+          alert('Erro ao salvar o pedido.');
+      }
+  } catch (error) {
+      console.error(error);
+      alert('Erro ao conectar com a API.');
+  }
+});
+
+
+// Criação: usar POST
+document.getElementById('btnNewProduct').addEventListener('click', () => {
+  document.getElementById('productForm').classList.remove('d-none');
+  document.getElementById('productListSection').classList.add('d-none');
+  document.getElementById('productId').value = '';
+  document.getElementById('btnSaveProduct').textContent = 'Salvar';
+});
+
