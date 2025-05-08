@@ -1,86 +1,195 @@
 {
-  "clients": [
+  "clients": [],
+  "products": [
     {
-      "id": "1743859622072",
-      "name": "maria",
-      "phone": "(43) 24324-2343",
-      "cep": "50780-300",
-      "address": "Avenida Doutor José Rufino",
-      "neighborhood": "Barro",
-      "city": "Recife",
-      "state": "PE"
+      "id": "1",
+      "name": "Margherita",
+      "price": 35.9,
+      "category": "Pizza",
+      "description": "Clássica pizza com molho de tomate, mussarela fresca, manjericão e azeite de oliva."
     },
     {
-      "id": "1743860480828",
-      "name": "PEDRO HENRIQUE MAIA OLIVEIRA",
-      "phone": "(83) 99391-1733",
-      "cep": "50780-300",
-      "address": "Avenida Doutor José Rufino",
-      "neighborhood": "Barro",
-      "city": "Recife",
-      "state": "PE"
+      "id": "2",
+      "name": "Pepperoni",
+      "price": 42.5,
+      "category": "Pizza",
+      "description": "Pizza com molho de tomate, mussarela e fatias de pepperoni picante."
     },
     {
-      "id": "1743861173785",
-      "name": "PEDRO HENRIQUE",
-      "phone": "(83) 99391-1733",
-      "cep": "50780-300",
-      "address": "Avenida Doutor José Rufino",
-      "neighborhood": "Barro",
-      "city": "Recife",
-      "state": "PE"
+      "id": "3",
+      "name": "Quatro Queijos",
+      "price": 48.75,
+      "category": "Pizza",
+      "description": "Deliciosa combinação de mussarela, provolone, parmesão e gorgonzola."
     },
     {
-      "id": "1746213926788",
-      "name": "Marcella ",
-      "phone": "(21) 98159-9359",
-      "cep": "52060-460",
-      "address": "Rua Sant'Anna",
-      "neighborhood": "Santana",
-      "city": "Recife",
-      "state": "PE"
+      "id": "4",
+      "name": "Frango com Catupiry",
+      "price": 45.9,
+      "category": "Pizza",
+      "description": "Pizza com frango desfiado temperado, coberto com catupiry cremoso."
+    },
+    {
+      "id": "5",
+      "name": "Portuguesa",
+      "price": 44,
+      "category": "Pizza",
+      "description": "Mussarela, presunto, ovos cozidos, cebola, azeitonas e pimentão."
+    },
+    {
+      "id": "6",
+      "name": "Calabresa",
+      "price": 39.9,
+      "category": "Pizza",
+      "description": "Pizza com molho de tomate, mussarela e rodelas de calabresa defumada."
+    },
+    {
+      "id": "7",
+      "name": "Vegetariana",
+      "price": 47.5,
+      "category": "Pizza",
+      "description": "Pizza com berinjela, abobrinha, pimentão, cebola, azeitonas e mussarela."
+    },
+    {
+      "id": "8",
+      "name": "Napolitana",
+      "price": 50,
+      "category": "Pizza",
+      "description": "Mussarela de búfala, tomates frescos, alho, azeite de oliva e manjericão."
+    },
+    {
+      "id": "9",
+      "name": "Brigadeiro",
+      "price": 38.9,
+      "category": "Pizza",
+      "description": "Pizza doce com brigadeiro cremoso e granulado de chocolate."
+    },
+    {
+      "id": "10",
+      "name": "Romeu e Julieta",
+      "price": 41.5,
+      "category": "Pizza",
+      "description": "Combinação clássica de goiabada cremosa com queijo mussarela."
+    },
+    {
+      "id": "11",
+      "name": "Coca-Cola",
+      "price": 8.5,
+      "category": "Bebida",
+      "description": "Bebida de cola tradicional, gelado e super refrescante."
+    },
+    {
+      "id": "12",
+      "name": "Guaraná Antarctica",
+      "price": 7.9,
+      "category": "Bebida",
+      "description": "O clássico sabor brasileiro de guaraná, gelado e com gás."
+    },
+    {
+      "id": "13",
+      "name": "Água Mineral",
+      "price": 4.5,
+      "category": "Bebida",
+      "description": "Água mineral sem gás, 500ml."
+    },
+    {
+      "id": "14",
+      "name": "Suco de Laranja Natural",
+      "price": 12,
+      "category": "Bebida",
+      "description": "Suco fresco de laranja, feito na hora e sem adição de açúcar."
+    },
+    {
+      "id": "17",
+      "name": "Red Bull",
+      "price": 14,
+      "category": "Bebida",
+      "description": "Energético para dar disposição, sabor original."
+    },
+    {
+      "id": "19",
+      "name": "Chá Gelado de Pêssego",
+      "price": 9.5,
+      "category": "Bebida",
+      "description": "Chá gelado sabor pêssego, leve e adoçado naturalmente."
+    },
+    {
+      "id": "20",
+      "name": "Milkshake de Chocolate",
+      "price": 15.9,
+      "category": "Bebida",
+      "description": "Milkshake cremoso de chocolate feito com sorvete artesanal."
+    },
+    {
+      "id": "21",
+      "name": "Petit Gateau",
+      "price": 22.9,
+      "category": "Sobremesa",
+      "description": "Bolinho de chocolate com casca crocante e recheio derretido, acompanhado de sorvete de baunilha."
+    },
+    {
+      "id": "22",
+      "name": "Tiramisù",
+      "price": 18.5,
+      "category": "Sobremesa",
+      "description": "Clássico italiano com camadas de biscoito champanhe embebido em café, creme de mascarpone e cacau em pó."
+    },
+    {
+      "id": "23",
+      "name": "Cheesecake de Morango",
+      "price": 16.9,
+      "category": "Sobremesa",
+      "description": "Torta de queijo com base de biscoito, coberta com geleia de morango fresco."
+    },
+    {
+      "id": "24",
+      "name": "Mousse de Chocolate",
+      "price": 12,
+      "category": "Sobremesa",
+      "description": "Mousse cremosa de chocolate meio amargo, finalizada com raspas de chocolate."
+    },
+    {
+      "id": "25",
+      "name": "Pudim de Leite Condensado",
+      "price": 10.5,
+      "category": "Sobremesa",
+      "description": "Pudim tradicional com calda de caramelo, feito com leite condensado."
+    },
+    {
+      "id": "26",
+      "name": "Sorvete de Nutella",
+      "price": 14.9,
+      "category": "Sobremesa",
+      "description": "Sorvete cremoso de avelã com Nutella, acompanhado de waffle crocante."
+    },
+    {
+      "id": "27",
+      "name": "Banana Split",
+      "price": 19.9,
+      "category": "Sobremesa",
+      "description": "Banana caramelizada com sorvetes de baunilha, chocolate e morango, calda de chocolate e chantilly."
+    },
+    {
+      "id": "28",
+      "name": "Torta de Limão",
+      "price": 15,
+      "category": "Sobremesa",
+      "description": "Torta com base de biscoito, recheio de limão siciliano e merengue dourado."
+    },
+    {
+      "id": "29",
+      "name": "Brigadeiro Gourmet",
+      "price": 8.9,
+      "category": "Sobremesa",
+      "description": "Brigadeiro cremoso com chocolate 70% cacau e granulados personalizados."
+    },
+    {
+      "id": "30",
+      "name": "Créme Brûlée",
+      "price": 24.5,
+      "category": "Sobremesa",
+      "description": "Sobremesa francesa com creme de baunilha e camada de açúcar queimado crocante."
     }
   ],
-  "produtos": [
-    {
-      "id": 1746393437590,
-      "items": [
-        {
-          "name": "Margherita",
-          "price": 35
-        }
-      ],
-      "total": 35
-    },
-    {
-      "id": 1746393660206,
-      "items": [
-        {
-          "name": "Margherita",
-          "price": 35
-        }
-      ],
-      "total": 35
-    },
-    {
-      "id": 1746394042281,
-      "items": [
-        {
-          "name": "Margherita",
-          "price": 35
-        }
-      ],
-      "total": 35
-    },
-    {
-      "id": 1746394053801,
-      "items": [
-        {
-          "name": "Calabresa",
-          "price": 38
-        }
-      ],
-      "total": 38
-    }
-  ]
+  "orders": []
 }
